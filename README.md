@@ -1,2 +1,2 @@
 # fmpy_uat
-repository to sotre assets for fmpy uat
+repository to store assets for fmpy uat
