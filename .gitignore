@@ -1,3 +1,5 @@
 archive
 runs
 *.pyc
+db-data
+docker-shared-fs

@@ -1,0 +1,31 @@
+version: '3'
+services:
+   pi_flood_worker:
+    restart: always
+    #image: coreoasis/piflood_model_worker:1.15.3
+    build:
+     context: .
+     dockerfile: Dockerfile.PiFloodWorker
+    links:
+     - celery-db
+     - rabbit:myrabbit
+    environment:
+     - OASIS_MODEL_SUPPLIER_ID=OasisLMF
+     - OASIS_MODEL_ID=PiFlood
+     - OASIS_MODEL_VERSION_ID=0.0.1
+     - OASIS_RABBIT_HOST=rabbit
+     - OASIS_RABBIT_PORT=5672
+     - OASIS_RABBIT_USER=rabbit
+     - OASIS_RABBIT_PASS=rabbit
+     - OASIS_CELERY_DB_ENGINE=db+mysql+pymysql
+     - OASIS_CELERY_DB_HOST=celery-db
+     - OASIS_CELERY_DB_PASS=password
+     - OASIS_CELERY_DB_USER=celery
+     - OASIS_CELERY_DB_NAME=celery
+     - OASIS_CELERY_DB_PORT=3306
+     - OASIS_KEEP_RUN_DIR=True
+    volumes:
+     - ./keys_data:/var/oasis/keys_data
+     - ./model_data:/var/oasis/model_data
+     - ./docker-shared-fs:/shared-fs:rw
+

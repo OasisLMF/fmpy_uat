@@ -1,0 +1,13 @@
+FROM coreoasis/model_worker:1.15.3
+
+WORKDIR /home/worker
+
+RUN python3 -V
+RUN apt update && apt install -y python3.8-dev python3-pip build-essential 
+RUN pip3 install pip-tools python-snappy pyarrow fastparquet
+
+COPY ./oasislmf_deploy.json /home/worker/model/oasislmf.json
+COPY ./meta-data/model_settings.json /home/worker/model/meta-data/model_settings.json
+COPY ./src/keys_server /home/worker/src/keys_server
+
+ENTRYPOINT ./startup.sh
