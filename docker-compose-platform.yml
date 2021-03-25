@@ -2,7 +2,7 @@ version: '3'
 services:
   server:
    restart: always
-   image: coreoasis/api_server:1.15.3
+   image: coreoasis/api_server:1.15.4
    ports:
      - 8000:8000
    links:
@@ -30,10 +30,10 @@ services:
      - OASIS_CELERY_DB_PORT=3306
      - STARTUP_RUN_MIGRATIONS=true
    volumes:
-     - ./docker-shared-fs:/shared-fs:rw
+     - /docker-shared-fs:/shared-fs:rw
   worker-monitor:
    restart: always
-   image: coreoasis/api_server:1.15.3
+   image: coreoasis/api_server:1.15.4
    command: [wait-for-server, 'server:8000', celery, -A, src.server.oasisapi, worker, --loglevel=INFO]
    links:
      - server-db
@@ -57,7 +57,7 @@ services:
      - OASIS_CELERY_DB_NAME=celery
      - OASIS_CELERY_DB_PORT=3306
    volumes:
-     - ./docker-shared-fs:/shared-fs:rw
+     - /docker-shared-fs:/shared-fs:rw
   server-db:
     restart: always
     image: mysql:8.0
@@ -69,7 +69,7 @@ services:
       - MYSQL_PASSWORD=oasis
       - MYSQL_DATABASE=oasis
     volumes:
-      - ./db-data/server:/var/lib/mysql:rw
+      - /db-data/server:/var/lib/mysql:rw
   celery-db:
     restart: always
     image: mysql
@@ -81,7 +81,7 @@ services:
       - MYSQL_PASSWORD=password
       - MYSQL_DATABASE=celery
     volumes:
-      - ./db-data/celery:/var/lib/mysql:rw
+      - /db-data/celery:/var/lib/mysql:rw
   rabbit:
     restart: always
     image: rabbitmq:3-management
