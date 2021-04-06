@@ -4,11 +4,21 @@ from numpy import random
 
 
 base_loc_fields = ['PortNumber','AccNumber','LocNumber','CountryCode',
-    'LocPerilsCovered','PostalCode','ConstructionCode','OccupancyCode',
-    'LocCurrency','BuildingTIV','OtherTIV','ContentsTIV','BITIV']
+    'LocPerilsCovered','LocPeril','PostalCode','ConstructionCode',
+    'OccupancyCode','LocCurrency','BuildingTIV','OtherTIV','ContentsTIV',
+    'BITIV']
 
-bas_acc_fields = ['PortNumber','AccNumber','AccCurrency','PolNumber',
-    'PolPerilsCovered']
+base_acc_fields = ['PortNumber','AccNumber','AccCurrency','PolNumber',
+    'PolPerilsCovered', 'PolPeril]
+
+fm_loc_fileds = ['LocLimit1Building', 'LocLimit2Other', 'LocLimit3Contents',
+    'LocLimit4BI','LocDed1Building','LocDed2Other','LocDed3Contents',
+    'LocDed4BI','LocLimit6All','LocDed6All','LocDedType1Building',
+    'LocDedType2Other','LocDedType3Contents','LocDedType4BI','LocDedType6All',
+    'LocLimitType1Building','LocLimitType2Other','LocLimitType3Contents',
+    'LocLimitType4BI','LocLimitType6All']
+
+fm_acc_fileds = []
 
 # static values
 PortNumber = 'BaseTest'

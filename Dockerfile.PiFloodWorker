@@ -1,4 +1,4 @@
-FROM coreoasis/model_worker:1.15.4
+FROM coreoasis/model_worker:1.15.6
 
 WORKDIR /home/worker
 

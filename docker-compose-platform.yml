@@ -2,7 +2,7 @@ version: '3'
 services:
   server:
    restart: always
-   image: coreoasis/api_server:1.15.4
+   image: coreoasis/api_server:1.15.6
    ports:
      - 8000:8000
    links:
@@ -33,7 +33,7 @@ services:
      - /docker-shared-fs:/shared-fs:rw
   worker-monitor:
    restart: always
-   image: coreoasis/api_server:1.15.4
+   image: coreoasis/api_server:1.15.6
    command: [wait-for-server, 'server:8000', celery, -A, src.server.oasisapi, worker, --loglevel=INFO]
    links:
      - server-db
