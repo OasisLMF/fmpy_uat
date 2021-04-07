@@ -49,6 +49,16 @@ The recommneded tests for UAT include the following combinations, but it should 
 | complex term, 10 000 loc, 50 samples | Complex_10k_Location.csv | Complex_10k_Account.csv | 50 |
 | complex term, 100 000 loc, 5 samples | Complex_100k_Location.csv | Complex_100k_Location.csv | 5 |
 
+---
+
+It is also possible to test the different allocation rules by invoking the `--ktools-alloc-rule-il` flag with the varios options:
+```
+0 = No back allocation
+1 = Back allocation according to GUL proportion
+2 = Back allocation through the levels *(default)*
+```
+> oasislmf model run --config oasislmf.json --ktools-alloc-rule-il 0
+
 
 
 
