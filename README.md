@@ -33,3 +33,23 @@ And the UI will be available at
 > localhost:8080
 
 ---
+
+## Tests
+
+The recommneded tests for UAT include the following combinations, but it should be noted that the model is based on real UK geography at postcode level, so you are able to test real UK portfolios through the model
+
+| test case | location file | account file | number of samples |
+| ----------- | ----------- | ----------- | ----------- |
+| simple term, 10 000 loc, 5 samples | Simple_10k_Location.csv | Simple_Account.csv | 5 |
+| simple term, 10 000 loc, 50 samples | Simple_10k_Location.csv | Simple_Account.csv | 50 |
+| simple term, 100 000 loc, 5 samples | Simple_100k_Location.csv | Simple_Account.csv | 5 |
+| simple term, 100 000 loc, 50 samples | Simple_100k_Location.csv | Simple_Account.csv | 50 |
+| simple term, 1 000 loc, 500 samples | Simple_1k_Location.csv | Simple_Account.csv | 500 |
+| complex term, 10 000 loc, 5 samples | Complex_10k_Location.csv | Complex_10k_Account.csv | 5 |
+| complex term, 10 000 loc, 50 samples | Complex_10k_Location.csv | Complex_10k_Account.csv | 50 |
+| complex term, 100 000 loc, 5 samples | Complex_100k_Location.csv | Complex_100k_Location.csv | 5 |
+
+
+
+
+
